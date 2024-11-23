@@ -12,6 +12,7 @@
     "@iconify/react": "^5.0.2",
     "@nextui-org/react": "^2.4.8",
     "@reduxjs/toolkit": "^2.3.0",
+    "@yudiel/react-qr-scanner": "^2.0.8",
     "cookies-next": "^4.2.1",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",

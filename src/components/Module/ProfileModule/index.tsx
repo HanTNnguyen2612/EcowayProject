@@ -77,7 +77,7 @@ export default function ProfilePage() {
                         className="bg-pink-500 text-white font-semibold border-none"
                         size="lg"
                     >
-                        {data?.user_role.toUpperCase()}
+                        {data?.user_role?.toUpperCase()}
                     </Badge>
                 </div>
                 <div className=" rounded-full border-4 border-white size-16 flex justify-center items-center">
