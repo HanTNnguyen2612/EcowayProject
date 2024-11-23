@@ -4,7 +4,7 @@ import { useCheckAdminQuery } from '@/store/queries/auth';
 import React from 'react'
 
 const ScanPage = () => {
-    const { data, isError, isFetching } = useCheckAdminQuery({}, { refetchOnMountOrArgChange: true });
+    const { data } = useCheckAdminQuery({}, { refetchOnMountOrArgChange: true });
     if (data?.isAdmin)
         return (
             <ScanAdminModule />

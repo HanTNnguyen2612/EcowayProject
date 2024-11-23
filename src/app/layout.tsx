@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import { fontSans, fontMono } from "@/config/fonts";
-import clsx from "clsx";
 import MainLayout from "@/components/layout/MainLayout.tsx";
 
 export const metadata: Metadata = {

@@ -4,7 +4,7 @@ import React from 'react'
 import { QRScanModal } from './QRScanModal';
 
 const ScanModule = ({ idScan }: { idScan: string }) => {
-    const { data, isLoading, isSuccess } = useScanUserByIDQuery(idScan);
+    const { isLoading, isSuccess } = useScanUserByIDQuery(idScan);
     React.useEffect(() => {
         if (!isLoading) setIsModalOpen(true)
     }, [isLoading])

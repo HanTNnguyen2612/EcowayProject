@@ -97,7 +97,7 @@ export default function ProfilePage() {
                 </h2>
                 <div className="flex flex-col justify-center gap-6">
                     {profile?.map((items: ScanHistoryItem[]) => (
-                        <div className="mt-6 ">
+                        <div key={items[0].updatedAt} className="mt-6 ">
                             <TimeDisplay updatedAt={items[0].updatedAt} />
                             {
                                 items.map((item) => (<div className="space-y-4" key={item.id_scan} >

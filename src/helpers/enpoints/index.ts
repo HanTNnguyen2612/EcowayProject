@@ -1,10 +1,6 @@
-import { constants } from "@/settings";
 
 const prefixAuth: string = "/api/auth";
-const prefixBase: string = "/api/v1";
-const prefixOther: string = "/api/core";
 
-const prefixApiAuth: string = `/api/core`;
 
 const prefixUser: string = "/api";
 const endpointAuth = {

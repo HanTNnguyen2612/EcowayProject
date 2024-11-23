@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import { constants } from "@/settings";
 
 const webStorageClient = {
-  set(key: string, rawValue: any, option?: any) {
+  set(key: string, rawValue: string, option?: any) {
     const value = _.isString(rawValue) ? rawValue : JSON?.stringify(rawValue);
 
     setCookie(key, value, option);

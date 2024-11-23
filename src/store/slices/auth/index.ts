@@ -1,7 +1,6 @@
 import { authAPI } from "@/store/queries/auth";
 import webStorageClient from "@/utils/webStorageClient";
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthSlickInterface {
   userInfo: any;
@@ -18,12 +17,6 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     actionLogin: (
-      state,
-      action: PayloadAction<{
-        username: string;
-        password: string;
-        isRemember: boolean;
-      }>
     ) => {},
   },
   extraReducers: (builder) => {
