@@ -7,7 +7,7 @@ import { useCheckAuthQuery } from '@/store/queries/auth'
 export default function Header() {
     const { data, isSuccess } = useCheckAuthQuery({}, { refetchOnMountOrArgChange: true });
     return (
-        <div className='fixed top-0 left-0 right-0'>
+        <div className='fixed top-0 z-[99] left-0 right-0'>
             {
                 isSuccess ? (
                     <UserHeader data={data?.user} />
