@@ -62,10 +62,8 @@ export default function UserHeader({ data }: UserProps) {
                             <p className="font-semibold text-sm text-black">{data?.name}</p>
                             <p className="font-semibold text-xs text-gray-500">{data?.email}</p>
                         </DropdownItem>
-                        <DropdownItem key="profile_page" color='primary'>
-                            <Link href="/profile" shallow className="w-full  text-black">
-                                Trang cá nhân
-                            </Link>
+                        <DropdownItem as={Link} href="/profile" className="w-full  text-black" key="profile_page" color='primary'>
+                            Trang cá nhân
                         </DropdownItem>
                         <DropdownItem key="logout" className='text-black' color="danger" onClick={onLogout}>
                             Đăng xuất

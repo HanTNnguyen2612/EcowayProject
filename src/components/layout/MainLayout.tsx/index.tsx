@@ -5,9 +5,11 @@ import dynamic from 'next/dynamic'
 const UsedMobileModule = dynamic(() => import('@/components/Module/UsedMobileModule'), { ssr: false })
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main className="">
-            <div className='absolute inset-0 z-[-1]'>
-                <Image src={bg} alt="background" className='w-full h-full' />
+        <main className="bg-cover bg-center bg-repeat-y" style={{ backgroundImage: `url(${bg.src})` }}>
+            <div
+                className='absolute inset-0 z-[-1] bg-cover bg-center bg-repeat-y'
+                style={{ backgroundImage: `url(${bg.src})` }}
+            >
             </div>
             <UsedMobileModule />
             {children}

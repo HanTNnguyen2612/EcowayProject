@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <Header />
+          {/* <Header /> */}
           <MainLayout>{children}</MainLayout>
         </Providers>
       </body>

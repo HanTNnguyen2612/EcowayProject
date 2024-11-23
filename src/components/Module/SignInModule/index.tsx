@@ -55,7 +55,7 @@ function SignInModule() {
 
     return (
         <div className="flex w-full items-center justify-center py-20">
-            <div className="flex w-full max-w-sm  backdrop-blur-lg rounded-2xl flex-col items-center gap-4 p-4">
+            <div className="flex w-full max-w-sm backdrop-blur-lg rounded-2xl flex-col items-center gap-4 p-4">
                 <div className="w-full">
                     <p className="pb-2 text-xl text-foreground font-bold">Đăng nhập</p>
                     <p className="text-small text-white/65 ">
@@ -66,7 +66,6 @@ function SignInModule() {
                     <Input
                         className="font-medium"
                         isRequired
-                        color="primary"
                         errorMessage="Mời nhập email đúng"
                         id="email"
                         isInvalid={!validateEmail(form.email) && isSubmit}
@@ -107,7 +106,6 @@ function SignInModule() {
                         type={isVisible ? "text" : "password"}
                         value={form.password}
                         variant="underlined"
-                        color="primary"
                         onChange={({ target }) => {
                             handleForm(target.value, target.id);
                         }}
@@ -120,14 +118,14 @@ function SignInModule() {
                             Quên mật khẩu?
                         </Link>
                     </div>
-                    <Button color="primary" className="font-semibold" isLoading={isLoading} isDisabled={!form.email || !form.password} type="submit">
+                    <Button className="font-semibold" isLoading={isLoading} isDisabled={!form.email || !form.password} type="submit">
                         Đăng nhập
                     </Button>
                 </form>
 
                 <p className="text-center text-small text-white">
                     Chưa có tài khoản? &nbsp;
-                    <Link href={`/sign-up?redirect=${redirect}`} className="underline-offset-2">Đăng ký</Link>
+                    <Link href={`/sign-up?redirect=${redirect}`} className="underline-offset-2 underline">Đăng ký</Link>
                 </p>
             </div>
         </div>

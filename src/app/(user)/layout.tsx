@@ -4,6 +4,7 @@ import { useRouter } from 'next-nprogress-bar'
 import { usePathname } from 'next/navigation'
 import { useCheckAuthQuery } from '@/store/queries/auth'
 import LoadingOverlay from '@/components/Module/ScanAdminModule/LoadingOverlay'
+import UserHeader from '@/components/layout/Header/UserHeader'
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname();
     const router = useRouter();
@@ -20,7 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <LoadingOverlay isLoading={isLoading} />
         </div> :
         <main>
-            {/* <UserHeader data={data?.user} /> */}
+            <UserHeader data={data?.user} />
             {children}
         </main>
     )

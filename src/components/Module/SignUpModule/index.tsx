@@ -61,7 +61,6 @@ function SignInModule() {
                 <form className="flex w-full flex-col gap-3" onSubmit={submitForm}>
                     <Input
                         isRequired
-                        color="primary"
                         errorMessage="Mời nhập tên đúng"
                         id="name"
                         isInvalid={!validateEmail(form.email) && isSubmit}
@@ -77,7 +76,6 @@ function SignInModule() {
                     />
                     <Input
                         isRequired
-                        color="primary"
                         errorMessage="Mời nhập email đúng"
                         id="email"
                         isInvalid={!validateEmail(form.email) && isSubmit}
@@ -117,12 +115,11 @@ function SignInModule() {
                         type={isVisible ? "text" : "password"}
                         value={form.password}
                         variant="underlined"
-                        color="primary"
                         onChange={({ target }) => {
                             handleForm(target.value, target.id);
                         }}
                     />
-                    <Button color="primary" isLoading={isLoading} isDisabled={!form.email || !form.password} type="submit">
+                    <Button isLoading={isLoading} isDisabled={!form.email || !form.password} type="submit">
                         Đăng Ký
                     </Button>
                 </form>
