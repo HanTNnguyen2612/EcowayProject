@@ -1,6 +1,6 @@
 {
   "name": "eco_way",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "@nextui-org/react": "^2.4.8",
     "@reduxjs/toolkit": "^2.3.0",
     "@yudiel/react-qr-scanner": "^2.0.8",
+    "autoprefixer": "^10.4.20",
     "cookies-next": "^4.2.1",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
@@ -25,6 +26,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^9.1.2",
+    "sharp": "^0.33.5",
     "sonner": "^1.7.0"
   },
   "devDependencies": {

@@ -25,7 +25,7 @@ const steps = [
 
 export default function HowItWorks() {
     return (
-        <div className="py-10 px-4 bg-gray-50">
+        <div className="py-10 px-4 w-full bg-gray-300">
             <h2 className="text-center mb-12 text-black text-4xl font-semibold">
                 Cách thức hoạt động
             </h2>

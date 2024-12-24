@@ -1,57 +1,71 @@
-"use client"
+"use client";
 
-import { useCreateScanMutation } from '@/store/queries/scanManagement'
-import { cn } from '@/utils/cn'
-import { useRef, useEffect } from 'react'
+import { useCreateScanMutation } from "@/store/queries/scanManagement";
+import { cn } from "@/utils/cn";
+import Image from "next/image";
+import { useRef, useEffect } from "react";
 
 interface ScannerComponentProps {
-  onScanComplete: (label: string, img: string) => void
-  setIsLoading: (isLoading: boolean) => void,
-  capturedImage: string | null,
-  setCapturedImage: (capturedImage: string) => void
+  onScanComplete: (label: string, img: string) => void;
+  setIsLoading: (isLoading: boolean) => void;
+  capturedImage: string | null;
+  setCapturedImage: (capturedImage: string) => void;
 }
 
-export default function ScannerComponent({ capturedImage, setCapturedImage, onScanComplete, setIsLoading }: ScannerComponentProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+export default function ScannerComponent({
+  capturedImage,
+  setCapturedImage,
+  onScanComplete,
+  setIsLoading,
+}: ScannerComponentProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [createScan] = useCreateScanMutation();
   useEffect(() => {
     const startCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "environment" },
+        });
         if (videoRef.current) {
-          videoRef.current.srcObject = stream
+          videoRef.current.srcObject = stream;
         }
       } catch (err) {
-        console.error("Error accessing camera: ", err)
-        alert("Unable to access the camera. Please make sure you've granted the necessary permissions.")
+        alert(
+          "Unable to access the camera. Please make sure you've granted the necessary permissions."
+        );
       }
-    }
+    };
 
-    startCamera()
-  }, [])
+    startCamera();
+  }, []);
 
   const captureImage = () => {
     if (videoRef.current && canvasRef.current) {
-      const context = canvasRef.current.getContext('2d')
+      const context = canvasRef.current.getContext("2d");
       if (context) {
-        canvasRef.current.width = videoRef.current.videoWidth
-        canvasRef.current.height = videoRef.current.videoHeight
-        context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height)
+        canvasRef.current.width = videoRef.current.videoWidth;
+        canvasRef.current.height = videoRef.current.videoHeight;
+        context.drawImage(
+          videoRef.current,
+          0,
+          0,
+          canvasRef.current.width,
+          canvasRef.current.height
+        );
 
         canvasRef.current.toBlob(async (blob) => {
           if (blob) {
-            setIsLoading(true)
+            setIsLoading(true);
             const reader = new FileReader();
 
             reader.onloadend = async () => {
               const base64String: string = String(reader?.result);
               try {
                 const data = await createScan(base64String).unwrap();
-                setCapturedImage(data?.image_url)
+                setCapturedImage(data?.image_url);
                 onScanComplete(data?.label, data?.qr_url);
               } catch (err) {
-                console.log('err', err)
               } finally {
                 setIsLoading(false);
               }
@@ -59,10 +73,10 @@ export default function ScannerComponent({ capturedImage, setCapturedImage, onSc
 
             reader.readAsDataURL(blob);
           }
-        }, 'image/jpeg')
+        }, "image/jpeg");
       }
     }
-  }
+  };
 
   return (
     <div className="relative w-full max-w-[300px] mx-auto mb-4">
@@ -70,15 +84,18 @@ export default function ScannerComponent({ capturedImage, setCapturedImage, onSc
         ref={videoRef}
         autoPlay
         playsInline
-        className={cn("w-full border-2 border-[#093106] rounded-md transition-transform duration-300 ease-in-out",
+        className={cn(
+          "w-full border-2 border-[#093106] rounded-md transition-transform duration-300 ease-in-out",
           capturedImage ? "hidden" : "block"
         )}
       />
       <canvas ref={canvasRef} className="hidden" />
       {capturedImage && (
-        <img
+        <Image
           src={capturedImage}
           alt="Processed Image"
+          width={300}
+          height={300}
           className="w-full border-2 border-[#093106] rounded-md animate-zoomIn"
         />
       )}
@@ -89,6 +106,5 @@ export default function ScannerComponent({ capturedImage, setCapturedImage, onSc
         Chụp Ảnh
       </button>
     </div>
-  )
+  );
 }
-

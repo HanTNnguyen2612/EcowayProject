@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import MainLayout from "@/components/layout/MainLayout.tsx";
-import Header from "@/components/layout/Header/main";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,17 +13,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <html lang="en">
-      <body
-      >
+    <html lang="vi">
+      <body>
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <Header />
           <MainLayout>{children}</MainLayout>
         </Providers>
       </body>
     </html>
   );
-
 }

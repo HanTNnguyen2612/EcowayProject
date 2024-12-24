@@ -21,7 +21,7 @@ export default function UserHeader({ data }: UserProps) {
         router.push("/sign-in")
     }
     return (
-        <Navbar isBordered>
+        <Navbar isBordered className='z-50'>
             <NavbarBrand>
                 <Link href="/">
                     <Image
