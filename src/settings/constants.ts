@@ -1,6 +1,6 @@
 import { TIME_FORMAT } from './formatDateTime';
 
-const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
+const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER || '';
 const API_SERVER_SOCKET = process?.env?.NEXT_PUBLIC_SERVER_SOCKET_URL;
 const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL;
 const SITE_URL = '/';

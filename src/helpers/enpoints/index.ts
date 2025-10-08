@@ -1,6 +1,4 @@
-
 const prefixAuth: string = "/api/auth";
-
 
 const prefixUser: string = "/api";
 const endpointAuth = {
@@ -16,12 +14,8 @@ const endpointUsersManagement = {
 
 const endpointScan = {
   CREATE_SCAN: `${prefixUser}/scan`,
-  SCAN_FROM_USER: `${prefixUser}/scan/{id}`
+  CREATE_QR: `${prefixUser}/scan/create-qr`,
+  SCAN_FROM_USER: `${prefixUser}/scan/{id}`,
 };
 
-
-export {
-  endpointAuth,
-  endpointUsersManagement,
-  endpointScan,
-};
+export { endpointAuth, endpointUsersManagement, endpointScan };

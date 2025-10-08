@@ -8,12 +8,22 @@ export const authAPI = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createScan: build.mutation({
       query: (body: string) => {
-        return ({
+        return {
           url: endpointScan.CREATE_SCAN,
           method: "POST",
           body: { image_b64: body },
           flashError: true,
-        })
+        };
+      },
+    }),
+    createQR: build.mutation({
+      query: (label: string) => {
+        return {
+          url: endpointScan.CREATE_QR,
+          method: "POST",
+          body: { label: label },
+          flashError: true,
+        };
       },
     }),
     scanUserByID: build.query({
@@ -26,5 +36,8 @@ export const authAPI = baseApi.injectEndpoints({
   }),
 });
 
-export const { useCreateScanMutation, useScanUserByIDQuery } =
-  authAPI;
+export const {
+  useCreateScanMutation,
+  useCreateQRMutation,
+  useScanUserByIDQuery,
+} = authAPI;
