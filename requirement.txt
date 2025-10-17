@@ -1,0 +1,24 @@
+Home Page
+- Banner hero: slogan “Tái sinh rác thải nhựa – Tái sinh tương lai”
+- CTA: “Bắt đầu tích điểm xanh ♻️” (scroll đến khu vực đăng nhập)
+- Section giới thiệu nhanh: 3 bước hành trình (Thu gom – Tái chế – Hồi sinh)
+- Ưu tiên UI sáng, có icon / animation nhỏ
+
+About Page
+- Câu chuyện ECOWAY
+- Ý nghĩa môi trường
+- Video ngắn “video quét mã của Khánh”
+
+Collect Page
+- Form “Gửi điểm tái sinh”: người dùng nhập số lượng chai nhựa thu gom
+- Button “Gửi xác nhận” → hệ thống cộng điểm
+
+Contact Page
+- Thông tin liên hệ
+- Link fanpage, hotline, email
+- Form góp ý nhanh
+- Gắn form Google
+
+
+
+

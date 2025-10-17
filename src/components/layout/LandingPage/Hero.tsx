@@ -14,7 +14,7 @@ export default function Hero() {
         setHasToken(!!token);
     }, []);
 
-    const { data, isLoading, isSuccess } = useCheckAuthQuery(
+    const { data, isSuccess } = useCheckAuthQuery(
         {},
         { 
             refetchOnMountOrArgChange: true,
@@ -45,9 +45,9 @@ export default function Hero() {
     const isAuthenticated = isSuccess && data?.user;
 
     return (
-        <div className="py-16 text-center">
+        <div id="login-section" className="py-16 text-center">
             <h1 className="mb-4 text-xl font-bold">
-                ECOWAY – Hồi sinh rác thải nhựa
+                Tái sinh rác thải nhựa – Tái sinh tương lai
             </h1>
             <p className="mb-8  max-w-[80%] mx-auto text-sm">
                 Giải pháp ứng dụng trí tuệ nhân tạo nhằm nhận diện và phân loại vỏ chai mỹ phẩm, giúp thu gom và tái chế hiệu quả.

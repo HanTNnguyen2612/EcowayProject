@@ -29,11 +29,12 @@ export default function Features() {
                 {features.map((feature, index) => (
                     <div
                         key={index}
-                        className="w-full sm:w-1/3 px-4" // Tailwind responsive grid 
+                        className="w-full sm:w-1/3 px-4 animate-fade-in-up"
+                        style={{ animationDelay: `${index * 0.2}s` }}
                     >
-                        <Card className=" backdrop-blur-sm bg-white/50">
+                        <Card className="backdrop-blur-sm bg-white/50 hover:bg-white/70 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                             <CardBody className="items-center text-center">
-                                <div className="mb-4 text-success ">{feature.icon}</div>
+                                <div className="mb-4 text-success animate-pulse">{feature.icon}</div>
                                 <h3 className="mb-2 text-2xl text-black">
                                     {feature.title}
                                 </h3>
